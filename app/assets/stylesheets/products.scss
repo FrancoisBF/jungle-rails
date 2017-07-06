@@ -33,12 +33,29 @@ main section.categories-show {
         left:   0;
         background-color: #EEE;
         padding: 15px;
+
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         width: 100%;
         opacity: 0.3;
         transition: all 0.3s;
       }
+
+      .soldout{
+
+        width: 25%;
+        position: absolute;
+        background-color: coral;
+        top: 0;
+        left: 0;
+        padding: 10;
+        border-top-left-radius: 4;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+        height: 27px;
+        color: white;
+      }
+
 
       aside.price {
         position: absolute;
