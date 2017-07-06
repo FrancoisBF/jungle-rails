@@ -17,6 +17,22 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
   end
+    #This route sends requests to the cool action in th gif controller.
+
+    #I've created a gif controller so I have a page I can secure later.
+
+    get '/login' => 'sessions#new'
+    post '/login' => 'sessions#create'
+    get '/logout' => 'sessions#destroy'
+
+    get '/signup' => 'users#new'
+    post '/users' => 'users#create'
+
+
+
+    #There routes will be for signup
+
+    #There routes will be for signup
 
 
   # The priority is based upon order of creation: first created -> highest priority.
