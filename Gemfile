@@ -58,3 +58,9 @@ group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
+
+gem "letter_opener", :group => :development
+
+group :development do
+  gem 'letter_opener_web'
+end

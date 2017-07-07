@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     get '/signup' => 'users#new'
     post '/users' => 'users#create'
 
+    if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 
 
     #There routes will be for signup
