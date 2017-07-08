@@ -32,7 +32,8 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-
+    #root to: 'products#show'
+    #resources :ratings, only: :update
 
     #There routes will be for signup
 

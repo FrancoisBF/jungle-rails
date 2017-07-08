@@ -20,6 +20,13 @@ unless Rails.env.development?
 end
 
 # Let's do this ...
+user1 = User.create!({
+  first_name: 'Francois',
+  last_name: 'Bergeret',
+  email: 'example@example.com',
+  password: '1234'
+  })
+
 
 ## CATEGORIES
 
@@ -33,15 +40,19 @@ cat3 = Category.find_or_create_by! name: 'Furniture'
 
 puts "Re-creating Products ..."
 
-Product.destroy_all
 
-cat1.products.create!({
+product1 = cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
   quantity: 10,
   price: 64.99
 })
+product1.reviews.create!({
+  description: "Good shirt",
+  rating: 4,
+  user: user1
+  })
 
 cat1.products.create!({
   name:  'Women\'s Zebra pants',
