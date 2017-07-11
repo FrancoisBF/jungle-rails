@@ -27,17 +27,37 @@
       </div>
     </div>
     <div class="row">
-    <% @product.reviews.each do |review| %>
+    <% @product.reviews.order(created_at: :desc).each do |review| %>
       <div class="review">
         <div>
-          <%= review.user.first_name %>
-          Rating <%= review.rating %>
+          <%= review.user&.first_name %>
+        </div>
+        <div>
+          <%= review.rating %>
         </div>
         <div>
           <%= review.description %>
         </div>
       </div>
     <% end %>
+    <h2>Add a review<h2>
+      <%= form_for [@product, @product.reviews.build] do |f| %>
+        <p>
+          <%= f.label :rating %><br>
+          <%= f.select (:rating) do %>
+            <% [['1', 1], ['2', 2],['3', 3], ['4', 4], ['5', 5]].each do |rating| %>
+              <%= content_tag(:option, rating.first, value: rating.last) %>
+            <% end %>
+          <% end %>
+        </p>
+        <p>
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
     </div>
   </article>
 

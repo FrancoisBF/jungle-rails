@@ -48,11 +48,12 @@ product1 = cat1.products.create!({
   quantity: 10,
   price: 64.99
 })
+
 product1.reviews.create!({
   description: "Good shirt",
   rating: 4,
   user: user1
-  })
+})
 
 cat1.products.create!({
   name:  'Women\'s Zebra pants',
